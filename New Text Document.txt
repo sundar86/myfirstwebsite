@@ -1,1 +1,63 @@
 https://www.formget.com/jquery-popup-form/
+
+
+create.prototype.remove=function(){
+	
+	var index;
+	var table=document.getElementsByTagName('table')[1];
+	var tr=table.getElementsByTagName('tr');
+    console.log(tr.length);
+	
+	//var ele=document.getElementsByName("delete");
+	//console.log(ele);
+	
+	//console.log(ele.length);
+	
+	
+	for (var i = 0; i < tr.length; i++) {
+     
+	 tr[i].cells[3].onclick = function(e)
+	 {
+		 
+		var element = e.srcElement || e.target;
+	    console.log(element);
+		if(element.nodeName == 'TABLE') return;
+          while(element.nodeName != 'TR')
+		  {
+			  element = element.parentNode;
+			  console.log(element);
+		  }
+		  
+		 
+		     alert(element.rowIndex);
+              index=element.rowIndex;
+			  console.log(index);
+			  //element1=element.parentNode;
+			  //index1=element1.childNodes[0];
+			  //console.log(index1);
+			  //console.log(element1);
+			  
+			  table.deleteRow(index);
+			  		  
+	 }
+}
+}
+
+
+/*create.prototype.remove1=function(){
+		
+		var table=document.getElementsByTagName('table')[1];
+		for(var i=1;i<table.rows.length;i++)
+		{
+			table.rows[i].cells[3].onclick=function(){
+				
+				
+				index=this.parentElement.rowIndex;
+				table.deleteRow(index);
+			};
+			
+		}
+		
+		
+		
+	}
